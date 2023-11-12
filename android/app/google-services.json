@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "436578221818",
+    "project_id": "stoi-quote-fnm5sp",
+    "storage_bucket": "stoi-quote-fnm5sp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:436578221818:android:d396d83cf82cbb563d5343",
+        "android_client_info": {
+          "package_name": "com.shinu.stoiquote"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "436578221818-ei8j55tmlfh4f8clc7spu2a2eieu639l.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.shinu.stoiquote",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "436578221818-auvo6416j98u8h0jle52btpg3lo25i1f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCXbKA4jWEr-UiyWf906OvK1onG6wOio7A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "436578221818-auvo6416j98u8h0jle52btpg3lo25i1f.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "436578221818-thfg8145m1bmnsslgarmpc9ktq21ccit.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.shinu.stoiquote"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
