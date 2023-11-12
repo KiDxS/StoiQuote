@@ -115,6 +115,8 @@ class _AuthPageWidgetState extends State<AuthPageWidget>
 
     _model.passwordController2 ??= TextEditingController();
     _model.passwordFocusNode2 ??= FocusNode();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
   @override
@@ -620,6 +622,75 @@ class _AuthPageWidgetState extends State<AuthPageWidget>
                                                         ),
                                                       ),
                                                     ),
+                                                    FFButtonWidget(
+                                                      onPressed: () async {
+                                                        GoRouter.of(context)
+                                                            .prepareAuthEvent();
+                                                        final user =
+                                                            await authManager
+                                                                .signInWithFacebook(
+                                                                    context);
+                                                        if (user == null) {
+                                                          return;
+                                                        }
+
+                                                        context.goNamedAuth(
+                                                            'HomePage',
+                                                            context.mounted);
+                                                      },
+                                                      text:
+                                                          'Continue with Facebook',
+                                                      icon: const Icon(
+                                                        Icons.facebook,
+                                                        size: 15.0,
+                                                      ),
+                                                      options: FFButtonOptions(
+                                                        width: 230.0,
+                                                        height: 40.0,
+                                                        padding:
+                                                            const EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    24.0,
+                                                                    0.0,
+                                                                    24.0,
+                                                                    0.0),
+                                                        iconPadding:
+                                                            const EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0),
+                                                        color: FlutterFlowTheme
+                                                                .of(context)
+                                                            .secondaryBackground,
+                                                        textStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodySmall
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Readex Pro',
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .bold,
+                                                                ),
+                                                        elevation: 0.0,
+                                                        borderSide: BorderSide(
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .alternate,
+                                                          width: 2.0,
+                                                        ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(40.0),
+                                                        hoverColor:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .primary,
+                                                      ),
+                                                    ),
                                                   ],
                                                 ),
                                               ),
@@ -1025,6 +1096,64 @@ class _AuthPageWidgetState extends State<AuthPageWidget>
                                                                 context)
                                                             .primaryBackground,
                                                   ),
+                                                ),
+                                              ),
+                                              FFButtonWidget(
+                                                onPressed: () async {
+                                                  GoRouter.of(context)
+                                                      .prepareAuthEvent();
+                                                  final user = await authManager
+                                                      .signInWithFacebook(
+                                                          context);
+                                                  if (user == null) {
+                                                    return;
+                                                  }
+
+                                                  context.goNamedAuth(
+                                                      'HomePage',
+                                                      context.mounted);
+                                                },
+                                                text: 'Continue with Facebook',
+                                                icon: const Icon(
+                                                  Icons.facebook,
+                                                  size: 15.0,
+                                                ),
+                                                options: FFButtonOptions(
+                                                  width: 230.0,
+                                                  height: 40.0,
+                                                  padding: const EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          24.0, 0.0, 24.0, 0.0),
+                                                  iconPadding:
+                                                      const EdgeInsetsDirectional
+                                                          .fromSTEB(0.0, 0.0,
+                                                              0.0, 0.0),
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .secondaryBackground,
+                                                  textStyle:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .bodySmall
+                                                          .override(
+                                                            fontFamily:
+                                                                'Readex Pro',
+                                                            fontWeight:
+                                                                FontWeight.bold,
+                                                          ),
+                                                  borderSide: BorderSide(
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .alternate,
+                                                    width: 2.0,
+                                                  ),
+                                                  borderRadius:
+                                                      BorderRadius.circular(
+                                                          40.0),
+                                                  hoverColor:
+                                                      FlutterFlowTheme.of(
+                                                              context)
+                                                          .primary,
                                                 ),
                                               ),
                                             ],

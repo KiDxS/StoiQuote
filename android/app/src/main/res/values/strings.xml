@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <resources>
     <string name="app_name">StoiQuote</string>
-
+    <string name="facebook_app_id">8beed33d9ac7eb75f8f5d6908808b030</string>
+               <string name="fb_login_protocol_scheme">fb8beed33d9ac7eb75f8f5d6908808b030</string>
 </resources>
