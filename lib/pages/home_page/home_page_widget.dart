@@ -50,119 +50,118 @@ class _HomePageWidgetState extends State<HomePageWidget> {
       child: Scaffold(
         key: scaffoldKey,
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
-        endDrawer: SizedBox(
-          width: MediaQuery.sizeOf(context).width * 0.8,
-          child: const Drawer(
-            elevation: 11.0,
-          ),
-        ),
         appBar: AppBar(
-          backgroundColor: FlutterFlowTheme.of(context).primary,
+          backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
           automaticallyImplyLeading: false,
           title: Text(
             FFAppConstants.projectName,
-            style: FlutterFlowTheme.of(context).headlineMedium.override(
-                  fontFamily: 'Outfit',
-                  color: Colors.white,
-                  fontSize: 22.0,
-                ),
+            style: FlutterFlowTheme.of(context).headlineSmall,
           ),
           actions: const [],
           centerTitle: false,
-          elevation: 2.0,
+          elevation: 0.0,
         ),
         body: SafeArea(
           top: true,
           child: Align(
-            alignment: const AlignmentDirectional(-1.00, -1.00),
+            alignment: const AlignmentDirectional(0.00, 0.00),
             child: Column(
               mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Expanded(
-                  child: FutureBuilder<ApiCallResponse>(
-                    future: GetStoicQuotesCall.call(),
-                    builder: (context, snapshot) {
-                      // Customize what your widget looks like when it's loading.
-                      if (!snapshot.hasData) {
-                        return Center(
-                          child: SizedBox(
-                            width: 50.0,
-                            height: 50.0,
-                            child: CircularProgressIndicator(
-                              valueColor: AlwaysStoppedAnimation<Color>(
-                                FlutterFlowTheme.of(context).primary,
+                  child: Padding(
+                    padding:
+                        const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 20.0),
+                    child: FutureBuilder<ApiCallResponse>(
+                      future: GetStoicQuotesCall.call(),
+                      builder: (context, snapshot) {
+                        // Customize what your widget looks like when it's loading.
+                        if (!snapshot.hasData) {
+                          return Center(
+                            child: SizedBox(
+                              width: 50.0,
+                              height: 50.0,
+                              child: CircularProgressIndicator(
+                                valueColor: AlwaysStoppedAnimation<Color>(
+                                  FlutterFlowTheme.of(context).primary,
+                                ),
                               ),
                             ),
-                          ),
-                        );
-                      }
-                      final swipeableStackGetStoicQuotesResponse =
-                          snapshot.data!;
-                      return Builder(
-                        builder: (context) {
-                          final retrieveStoicQuotesResponse =
-                              GetStoicQuotesCall.allQuotes(
-                                    swipeableStackGetStoicQuotesResponse
-                                        .jsonBody,
-                                  )?.toList() ??
-                                  [];
-                          return FlutterFlowSwipeableStack(
-                            topCardHeightFraction: 0.5,
-                            middleCardHeightFraction: 0.3,
-                            bottomCardHeightFraction: 0.4,
-                            topCardWidthFraction: 0.9,
-                            middleCardWidthFraction: 0.85,
-                            bottomCardWidthFraction: 0.8,
-                            onSwipeFn: (index) {},
-                            onLeftSwipe: (index) {},
-                            onRightSwipe: (index) {},
-                            onUpSwipe: (index) {},
-                            onDownSwipe: (index) {},
-                            itemBuilder:
-                                (context, retrieveStoicQuotesResponseIndex) {
-                              final retrieveStoicQuotesResponseItem =
-                                  retrieveStoicQuotesResponse[
-                                      retrieveStoicQuotesResponseIndex];
-                              return Card(
-                                clipBehavior: Clip.antiAliasWithSaveLayer,
-                                color: FlutterFlowTheme.of(context)
-                                    .secondaryBackground,
-                                elevation: 4.0,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(8.0),
-                                ),
-                                child: Align(
-                                  alignment: const AlignmentDirectional(0.00, 0.00),
-                                  child: Text(
-                                    '"${getJsonField(
-                                      retrieveStoicQuotesResponseItem,
-                                      r'''$.text''',
-                                    ).toString()}" - ${getJsonField(
-                                      retrieveStoicQuotesResponseItem,
-                                      r'''$.author''',
-                                    ).toString()}',
-                                    textAlign: TextAlign.center,
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Readex Pro',
-                                          fontSize: 24.0,
-                                          fontStyle: FontStyle.italic,
-                                        ),
-                                  ),
-                                ),
-                              );
-                            },
-                            itemCount: retrieveStoicQuotesResponse.length,
-                            controller: _model.swipeableStackController,
-                            enableSwipeUp: false,
-                            enableSwipeDown: false,
                           );
-                        },
-                      );
-                    },
+                        }
+                        final swipeableStackGetStoicQuotesResponse =
+                            snapshot.data!;
+                        return Builder(
+                          builder: (context) {
+                            final retrieveStoicQuotesResponse =
+                                GetStoicQuotesCall.allQuotes(
+                                      swipeableStackGetStoicQuotesResponse
+                                          .jsonBody,
+                                    )?.toList() ??
+                                    [];
+                            return FlutterFlowSwipeableStack(
+                              topCardHeightFraction: 0.4,
+                              middleCardHeightFraction: 0.45,
+                              bottomCardHeightFraction: 0.0,
+                              topCardWidthFraction: 0.9,
+                              middleCardWidthFraction: 0.8,
+                              bottomCardWidthFraction: 0.8,
+                              onSwipeFn: (index) {},
+                              onLeftSwipe: (index) {},
+                              onRightSwipe: (index) {},
+                              onUpSwipe: (index) {},
+                              onDownSwipe: (index) {},
+                              itemBuilder:
+                                  (context, retrieveStoicQuotesResponseIndex) {
+                                final retrieveStoicQuotesResponseItem =
+                                    retrieveStoicQuotesResponse[
+                                        retrieveStoicQuotesResponseIndex];
+                                return Align(
+                                  alignment: const AlignmentDirectional(0.00, 0.00),
+                                  child: Card(
+                                    clipBehavior: Clip.antiAliasWithSaveLayer,
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                    elevation: 4.0,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(8.0),
+                                    ),
+                                    child: Align(
+                                      alignment:
+                                          const AlignmentDirectional(0.00, 0.00),
+                                      child: Padding(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                            15.0, 15.0, 15.0, 15.0),
+                                        child: Text(
+                                          '"${getJsonField(
+                                            retrieveStoicQuotesResponseItem,
+                                            r'''$.text''',
+                                          ).toString()}" - ${getJsonField(
+                                            retrieveStoicQuotesResponseItem,
+                                            r'''$.author''',
+                                          ).toString()}',
+                                          textAlign: TextAlign.center,
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyLarge
+                                              .override(
+                                                fontFamily: 'Readex Pro',
+                                                fontStyle: FontStyle.italic,
+                                              ),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                );
+                              },
+                              itemCount: retrieveStoicQuotesResponse.length,
+                              controller: _model.swipeableStackController,
+                              enableSwipeUp: false,
+                              enableSwipeDown: false,
+                            );
+                          },
+                        );
+                      },
+                    ),
                   ),
                 ),
               ],
