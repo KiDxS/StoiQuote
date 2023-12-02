@@ -186,7 +186,7 @@ class _HomePageWidgetState extends State<HomePageWidget> {
                                           icon: Icon(
                                             Icons.favorite_rounded,
                                             color: FlutterFlowTheme.of(context)
-                                                .primaryBackground,
+                                                .primaryBtnText,
                                             size: 24.0,
                                           ),
                                           onPressed: () async {
