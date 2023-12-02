@@ -118,6 +118,7 @@ class _NavBarPageState extends State<NavBarPage> {
   @override
   Widget build(BuildContext context) {
     final tabs = {
+      'FavoritesPage': const FavoritesPageWidget(),
       'HomePage': const HomePageWidget(),
       'Settings': const SettingsWidget(),
     };
@@ -154,14 +155,14 @@ class _NavBarPageState extends State<NavBarPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Icon(
-                  Icons.home_outlined,
+                  Icons.favorite_border_outlined,
                   color: currentIndex == 0
                       ? FlutterFlowTheme.of(context).primary
                       : const Color(0x8A000000),
                   size: 24.0,
                 ),
                 Text(
-                  'Home',
+                  'Favourites',
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
                     color: currentIndex == 0
@@ -178,8 +179,32 @@ class _NavBarPageState extends State<NavBarPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Icon(
-                  Icons.settings_sharp,
+                  Icons.home_outlined,
                   color: currentIndex == 1
+                      ? FlutterFlowTheme.of(context).primary
+                      : const Color(0x8A000000),
+                  size: 24.0,
+                ),
+                Text(
+                  'Home',
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(
+                    color: currentIndex == 1
+                        ? FlutterFlowTheme.of(context).primary
+                        : const Color(0x8A000000),
+                    fontSize: 11.0,
+                  ),
+                ),
+              ],
+            ),
+          ),
+          FloatingNavbarItem(
+            customWidget: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(
+                  Icons.settings_sharp,
+                  color: currentIndex == 2
                       ? FlutterFlowTheme.of(context).primary
                       : const Color(0x8A000000),
                   size: 24.0,
@@ -188,7 +213,7 @@ class _NavBarPageState extends State<NavBarPage> {
                   'Settings\n',
                   overflow: TextOverflow.ellipsis,
                   style: TextStyle(
-                    color: currentIndex == 1
+                    color: currentIndex == 2
                         ? FlutterFlowTheme.of(context).primary
                         : const Color(0x8A000000),
                     fontSize: 11.0,
